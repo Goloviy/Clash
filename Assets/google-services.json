@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "50459211549",
+    "project_id": "endurance-clash-de745",
+    "storage_bucket": "endurance-clash-de745.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50459211549:android:6549e9c5666e9cd08dd3f4",
+        "android_client_info": {
+          "package_name": "com.kg187.endurance.clash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiXaSgXLTQHCMv-gp1n8pXlhNPgSxngRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
