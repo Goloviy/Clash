@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using I2.Loc;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,7 +49,8 @@ public class ButtonLearnSkill : MonoBehaviour
         //string txtTit2 = I2.Loc.LocalizationManager.GetTranslation(data.nameSkill);
         tmpSkillName.text = data.nameSkill;
         //string txtDes = I2.Loc.LocalizationManager.GetTranslation(data.descriptionsLevelup[skillLevel]);
-        tmpContent.text = data.descriptionsLevelup[skillLevel];
+        tmpContent.text = LocalizationManager.GetTranslation(data.descriptionsLevelup[skillLevel]);
+        //tmpContent.text = data.descriptionsLevelup[skillLevel];
         imgSkillIcon.overrideSprite = data.spriteIcon;
         //evol info
         for (int i = 0; i < imgEvols.Length; i++)

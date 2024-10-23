@@ -13,7 +13,7 @@ public class TestLocal : MonoBehaviour
     void Start()
     {
         var atr = ScriptLocalization.EquipmentOp.Skill_CrossBow_1;
-        var str = LocalizationManager.GetTranslation("EquipmentOp/Skill.CrossBow.1");
+        var str = LocalizationManager.GetTranslation("Key.Skill.BulletSpeed.1");
         var str2 = LocalizationManager.GetTranslation("EquipmentOp/Skill.Sword.1");
     }
 

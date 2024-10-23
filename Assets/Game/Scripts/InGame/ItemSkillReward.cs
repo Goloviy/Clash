@@ -79,6 +79,7 @@ public class ItemSkillReward : MonoBehaviour
         tmpTitle.text = data.nameSkill;
         //string txtDes = I2.Loc.LocalizationManager.GetTranslation(data.descriptionsLevelup[elementData.level - 1 < 0 ? 0 : elementData.level - 1]);
         tmpContent.text = data.descriptionsLevelup[elementData.level - 1 < 0 ? 0 : elementData.level - 1];
+        //tmpContent.text = I2.Loc.LocalizationManager.GetTranslation(data.descriptionsLevelup[elementData.level - 1 < 0 ? 0 : elementData.level - 1]);
         for (int i = 0; i < highlights.Length; i++)
         {
             if (i == elementData.level - 1)
