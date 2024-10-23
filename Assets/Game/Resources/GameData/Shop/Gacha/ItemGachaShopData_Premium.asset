@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemGachaShopData_Premium
   m_EditorClassIdentifier: 
   spineChest: {fileID: 11400000, guid: 10886c25d886563468ed72c14b1a8644, type: 2}
-  title: Premium Gacha
+  title: Premium Equipment
   gachaType: 2
   iconSprite: {fileID: 21300000, guid: b7e8c86b0e45e454fa44d40f06c1c5d2, type: 3}
   currencyPrice: 2

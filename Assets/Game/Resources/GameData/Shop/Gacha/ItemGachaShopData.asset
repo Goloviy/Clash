@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemGachaShopData
   m_EditorClassIdentifier: 
   spineChest: {fileID: 11400000, guid: c46d4135eda9d444ebc4283203f922bd, type: 2}
-  title: Common Gacha
+  title: Common Equipment
   gachaType: 1
   iconSprite: {fileID: 21300000, guid: b8ac0a304855df64e90113b115af6162, type: 3}
   currencyPrice: 1

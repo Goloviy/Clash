@@ -238,7 +238,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - "Gacha th\u01B0\u1EDDng"
-      - Common Gacha
+      - Common Equipment
       - 
       Flags: 000000
       Languages_Touch: []
@@ -391,7 +391,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - "R\u01B0\u01A1ng May M\u1EAFn"
-      - Gacha
+      - Equipment
       - 
       Flags: 000000
       Languages_Touch: []
@@ -2008,7 +2008,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - "Cao C\u1EA5p"
-      - Premium
+      - Gems
       - 
       Flags: 000000
       Languages_Touch: []
@@ -2017,7 +2017,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - "Gacha Cao C\u1EA5p"
-      - Premium Gacha
+      - Premium Equipment
       - 
       Flags: 000000
       Languages_Touch: []
@@ -2224,7 +2224,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - "Ti\xEAu Chu\u1EA9n"
-      - Standard
+      - Gold
       - 
       Flags: 000000
       Languages_Touch: []
@@ -3840,6 +3840,24 @@ MonoBehaviour:
       - "Th\xE0nh C\xF4ng!"
       - Success!
       - Success!
+      Flags: 000000
+      Languages_Touch: []
+    - Term: ARIAL_MATERIAL
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: TextMesh Pro Text
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      - 
       Flags: 000000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
