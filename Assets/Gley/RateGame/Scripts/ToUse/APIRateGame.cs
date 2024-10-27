@@ -1,4 +1,5 @@
 using Gley.RateGame.Internal;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Gley.RateGame

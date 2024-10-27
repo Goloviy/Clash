@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GoogleMobileAds.Api;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,6 +32,7 @@ public class ItemShopGacha : MonoBehaviour
     [SerializeField] Image iconCurrency1;
     [SerializeField] Image iconCurrency2;
     [SerializeField] Image iconChest;
+    [SerializeField] private RewardAd rewardAd;
     ItemGachaShopData itemData;
 
     [SerializeField] GachaInfoPopup goInforGachaPanel;
@@ -68,21 +70,26 @@ public class ItemShopGacha : MonoBehaviour
     private void OnClickRV()
     {
         SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);
-        OnRewardSuccess(1);
+        rewardAd.CollectRewards += OnRewardSuccess;
+        //rewardAd.Rewarded.
+        //OnRewardSuccess(1);
     }
 
     private void OnRVFail()
     {
         
     }
-    void OnRewardSuccess(int point)
+    
+    private void OnRewardSuccess()
     {
+        Debug.Log("rewarded");
         btnRewardVideo.gameObject.SetActive(false);
         SetTimeNextReward();
         GameSystem.Instance.OpenGacha(itemData.gachaType, 1);
         GameDynamicData.curGachaType = itemData.gachaType;
         UIManagerHome.Instance.Open(PopupType.OPEN_GACHA_EQUIPMENT, true);
         GameData.Instance.playerData.saveData.SavePlayerData();
+        rewardAd.CollectRewards -= OnRewardSuccess;
     }
     private void OnClickInfo()
     {

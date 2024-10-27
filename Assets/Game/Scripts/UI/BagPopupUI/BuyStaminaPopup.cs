@@ -14,6 +14,7 @@ public class BuyStaminaPopup : PopupUI
     [SerializeField] int energy = 15;
     [SerializeField] TextMeshProUGUI tmpBuyEnergy;
     [SerializeField] TextMeshProUGUI tmpBuyPrice;
+    [SerializeField] private RewardAd rewardAd;
     protected override void Awake()
     {
         base.Awake();
@@ -27,20 +28,18 @@ public class BuyStaminaPopup : PopupUI
     private void OnClickClose()
     {
         SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);
-
         OnClose();
     }
 
     private void OnClickViewVid()
     {
+        rewardAd.CollectRewards += OnViewSuccess;
         SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);
-
-        OnViewSuccess();
     }
 
     private void OnViewSuccess()
     {
-
+        rewardAd.CollectRewards -= OnViewSuccess;
         GameData.Instance.playerData.AddCurrency(Currency.STAMINA, 5);
         OnClose();
     }

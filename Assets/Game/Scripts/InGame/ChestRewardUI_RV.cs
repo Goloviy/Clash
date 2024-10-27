@@ -2,12 +2,14 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GoogleMobileAds.Api;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ChestRewardUI_RV : ChestRewardUI
 {
     [SerializeField] Button btnRV;
+    [SerializeField] private RewardAd rewardAd;
     protected override void Awake()
     {
         base.Awake();
@@ -18,7 +20,9 @@ public class ChestRewardUI_RV : ChestRewardUI
 
     private void OnClickRV()
     {
-        OnRVSuccess(1);
+        rewardAd.ShowAd();
+        rewardAd.CollectRewards += OnRVSuccess;
+
     }
 
     private void OnRVFail()
@@ -26,8 +30,9 @@ public class ChestRewardUI_RV : ChestRewardUI
         
     }
 
-    private void OnRVSuccess(int obj)
+    private void OnRVSuccess()
     {
+        rewardAd.CollectRewards -= OnRVSuccess;
         btnRV.gameObject.SetActive(false);
         resultData = AddMoreSkill(2, resultData);
         if (resultData != null && resultData.Length >= indexShow)

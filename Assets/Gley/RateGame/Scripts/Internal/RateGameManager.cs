@@ -72,6 +72,7 @@ namespace Gley.RateGame.Internal
         /// <param name="PopupClosed">callback called when Rate Game Popup was closed</param>
         internal void ShowRatePopup(UnityAction PopupClosed = null)
         {
+            Time.timeScale = 0;
             //Debug.Log("ShowRatePopup");
             //Debug.Log(RateGameSettings);
             if (RateGameSettings == null)
@@ -178,6 +179,7 @@ namespace Gley.RateGame.Internal
         /// </summary>
         internal void RatePopupWasClosed(PopupOptions result, string message)
         {
+            Time.timeScale = 1;
             if (PopupClosed != null)
             {
                 PopupClosed();

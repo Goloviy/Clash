@@ -12,6 +12,7 @@ public class PopupLearnSkill : PopupUI
     [SerializeField] Button btnRefresh;
     [SerializeField] Image[] imgAtks;
     [SerializeField] Image[] imgBuffs;
+    [SerializeField] private RewardAd rewardAd;
     TextMeshProUGUI[] tmpAtks;
     TextMeshProUGUI[] tmpBuffs;
     bool isReferencesFinish = false;
@@ -133,7 +134,9 @@ public class PopupLearnSkill : PopupUI
     public void RefreshSkills()
     {
         SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);
-        OnSuccess(1);
+        rewardAd.ShowAd();
+        rewardAd.CollectRewards += OnSuccess;
+        
     }
 
     private void OnFail()
@@ -141,8 +144,10 @@ public class PopupLearnSkill : PopupUI
         
     }
 
-    private void OnSuccess(int point)
+    private void OnSuccess()
     {
+        rewardAd.CollectRewards -= OnSuccess;
         LoadButtonSkill();
+        Time.timeScale = 0f;
     }
 }

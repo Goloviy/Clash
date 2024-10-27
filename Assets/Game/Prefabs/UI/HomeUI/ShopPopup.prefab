@@ -23161,7 +23161,6 @@ GameObject:
   - component: {fileID: 5229754268838459178}
   - component: {fileID: 1582569413577271778}
   - component: {fileID: 984761651975269425}
-  - component: {fileID: 7270019078166773954}
   m_Layer: 5
   m_Name: packPackPack1 (2)
   m_TagString: Untagged
@@ -23232,37 +23231,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7270019078166773954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1648044748872216643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b5954ab3604fcb41972882d0c37a32c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isIapPackage: 1
-  iapPackageId: com.survivol.pileofgold1
-  tmpPrice: {fileID: 1308594822084947853}
-  isOneTimePurchase: 0
-  productId: 
-  priceData:
-    currency: 0
-    number: 0
-  packItems:
-  - currency: 1
-    number: 500000
-  - currency: 1
-    number: 500000
-  - currency: 1
-    number: 500000
-  - currency: 1
-    number: 500000
-  packEquipments: []
-  packageId: 701e891a-d6b3-41e0-a1e1-b0d638029e4b
 --- !u!1 &1672719277833917104
 GameObject:
   m_ObjectHideFlags: 0
@@ -52182,7 +52150,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7270019078166773954}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PackageShop, Assembly-CSharp
         m_MethodName: OnClickBuy
         m_Mode: 3

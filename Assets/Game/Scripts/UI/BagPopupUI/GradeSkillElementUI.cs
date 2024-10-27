@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using I2.Loc;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +22,8 @@ public class GradeSkillElementUI : MonoBehaviour
         tmpDescriptions.color = (int)gradeSkillData.rarity > (int)equipRarity ? 
             new Color(0.15f,0.15f,0.15f) : Color.white;
         //string txtDes = I2.Loc.LocalizationManager.GetTranslation(gradeSkillData.descriptions);
-        tmpDescriptions.text = gradeSkillData.descriptions;
+        var descriptions = LocalizationManager.GetTranslation(gradeSkillData.descriptions);
+        tmpDescriptions.text = descriptions;
     }
 
 }

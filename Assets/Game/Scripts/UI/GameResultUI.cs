@@ -21,6 +21,7 @@ public class GameResultUI : PopupUI
     const string STR_RESULT_LOSE = "LOSE";
     [SerializeField] ItemRewardFinishGame prefabItem;
     [SerializeField] Transform tfParent;
+    [SerializeField] private RewardAd rewardAd;
     protected override void Awake()
     {
         base.Awake();
@@ -35,7 +36,8 @@ public class GameResultUI : PopupUI
 
     private void OnRewardX3()
     {
-        OnRvSuccess(1);
+        rewardAd.ShowAd();
+        rewardAd.CollectRewards += OnRvSuccess;
     }
 
     private void OnRvFail()
@@ -43,8 +45,9 @@ public class GameResultUI : PopupUI
         
     }
 
-    private void OnRvSuccess(int obj)
+    private void OnRvSuccess()
     {
+        rewardAd.CollectRewards -= OnRvSuccess;
         InGameManager.Instance.OnRvSuccess(3);
         btnRewardX2.gameObject.SetActive(false);
     }

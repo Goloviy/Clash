@@ -129,6 +129,7 @@ namespace Gley.RateGame.Internal
             AnimatorStateInfo info = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
             Destroy(gameObject.transform.parent.gameObject, info.length + 0.1f);
             StartCoroutine(CloseEvent(info.length));
+            Debug.Log("close");
         }
 
 
