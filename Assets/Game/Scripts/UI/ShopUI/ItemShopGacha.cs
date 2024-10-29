@@ -69,8 +69,8 @@ public class ItemShopGacha : MonoBehaviour
 
     private void OnClickRV()
     {
-        SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);
         rewardAd.CollectRewards += OnRewardSuccess;
+        SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);
         //rewardAd.Rewarded.
         //OnRewardSuccess(1);
     }
@@ -83,14 +83,16 @@ public class ItemShopGacha : MonoBehaviour
     private void OnRewardSuccess()
     {
         Debug.Log("rewarded");
-        btnRewardVideo.gameObject.SetActive(false);
-        SetTimeNextReward();
-        GameSystem.Instance.OpenGacha(itemData.gachaType, 1);
-        GameDynamicData.curGachaType = itemData.gachaType;
-        UIManagerHome.Instance.Open(PopupType.OPEN_GACHA_EQUIPMENT, true);
-        GameData.Instance.playerData.saveData.SavePlayerData();
         rewardAd.CollectRewards -= OnRewardSuccess;
+        GameData.Instance.playerData.AddCurrency(Currency.STAMINA, 5);
+        // btnRewardVideo.gameObject.SetActive(false);
+        // SetTimeNextReward();
+        // GameSystem.Instance.OpenGacha(itemData.gachaType, 1);
+        // GameDynamicData.curGachaType = itemData.gachaType;
+        // UIManagerHome.Instance.Open(PopupType.OPEN_GACHA_EQUIPMENT, true);
+        // GameData.Instance.playerData.saveData.SavePlayerData();
     }
+    
     private void OnClickInfo()
     {
         SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);

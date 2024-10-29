@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: kg187.endurance.clash
-  productName: Survivor
+  companyName: kg187
+  productName: Endurance clash
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -140,7 +140,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 1.0.11
+  bundleVersion: 1.0.13
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -173,7 +173,7 @@ PlayerSettings:
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 11
+  AndroidBundleVersionCode: 13
   AndroidMinSdkVersion: 24
   AndroidTargetSdkVersion: 34
   AndroidPreferredInstallLocation: 1
@@ -917,11 +917,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 41366bc5-0d5c-4352-a70c-47f4d0fd9f70
+  cloudProjectId: 612705d7-36ed-429d-b269-fb2e1a6470c8
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Survivor-demo
-  organizationId: duc-phan
+  projectName: Endurance Clash
+  organizationId: sordino13
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
@@ -9,7 +9,7 @@ public class Purchaser : MonoBehaviour
     private int countPack2 = 450;
     private int countPack3 = 1000;
     private int countPack4 = 5000;
-    
+ 
     public void OnPurchaseCompleted(Product _product)
     {
         switch (_product.definition.id)

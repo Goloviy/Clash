@@ -8072,6 +8072,7 @@ MonoBehaviour:
   iconCurrency1: {fileID: 574608708544218018}
   iconCurrency2: {fileID: 1876480950586283383}
   iconChest: {fileID: 1168516580758889818}
+  rewardAd: {fileID: 0}
   goInforGachaPanel: {fileID: 651378478297265381}
 --- !u!1 &253285039840057967
 GameObject:
@@ -57853,7 +57854,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1000}
+  m_SizeDelta: {x: 0, y: 1050}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4191387294670749011
 MonoBehaviour:
@@ -74467,6 +74468,7 @@ MonoBehaviour:
   iconCurrency1: {fileID: 6887711453803160346}
   iconCurrency2: {fileID: 5599664633777373206}
   iconChest: {fileID: 0}
+  rewardAd: {fileID: 0}
   goInforGachaPanel: {fileID: 651378478297265381}
 --- !u!1 &5436062184799196064
 GameObject:
@@ -102627,8 +102629,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000010014, y: 0.000047684}
-  m_SizeDelta: {x: -0.0009, y: 1535.6044}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 1095}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8729985567771063208
 MonoBehaviour:

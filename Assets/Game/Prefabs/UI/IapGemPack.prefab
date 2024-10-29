@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 8061664712190690137}
   - component: {fileID: 578398558}
   - component: {fileID: 4272286198222222973}
+  - component: {fileID: 7882714466676404767}
   m_Layer: 5
   m_Name: IapGemPack
   m_TagString: Untagged
@@ -355,6 +356,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   button: {fileID: 8061664712190690137}
+--- !u!114 &7882714466676404767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8061664712190690139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7020e337f73c327439e00948701ac073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: {fileID: 8061664712697313466}
 --- !u!1 &8061664712192020525
 GameObject:
   m_ObjectHideFlags: 0
