@@ -47,6 +47,7 @@ public class GameResultUI : PopupUI
 
     private void OnRvSuccess()
     {
+        Time.timeScale = 0;
         rewardAd.CollectRewards -= OnRvSuccess;
         InGameManager.Instance.OnRvSuccess(3);
         btnRewardX2.gameObject.SetActive(false);
@@ -112,5 +113,4 @@ public class GameResultUI : PopupUI
         GameData.Instance.playerData.saveData.SavePlayerData();
         SceneManager.LoadScene("Home");
     }
-    
 }

@@ -1247,10 +1247,46 @@ PrefabInstance:
       propertyPath: rewardAd
       value: 
       objectReference: {fileID: 350619709}
+    - target: {fileID: 1439763810, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439763812, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439763812, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439763812, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 350619709}
+    - target: {fileID: 1439763812, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439763812, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowAd
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439763812, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RewardAd, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439763812, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1772051118, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1772051120, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
+      propertyPath: rewardAd
+      value: 
+      objectReference: {fileID: 350619709}
     - target: {fileID: 2090518731, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1463,6 +1499,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8112527796032131883, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
+      propertyPath: rewardAd
+      value: 
+      objectReference: {fileID: 350619709}
     - target: {fileID: 8381316481098681068, guid: 5b71a5cdf744c56418395a7a89291267, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.99383825

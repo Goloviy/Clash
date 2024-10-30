@@ -12,6 +12,7 @@ public class ReviveUI : PopupUI
     [SerializeField] TextMeshProUGUI tmpCounter;
     [SerializeField] Image imgFill;
     [SerializeField] Button btnPlayAds;
+    [SerializeField] private RewardAd rewardAd;
     bool isEndCounter = false;
     float valueFillStart = 0f;
     float valueFillEnd = 1f;
@@ -29,15 +30,17 @@ public class ReviveUI : PopupUI
     private void OnClickPlayAds()
     {
         SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);
-        if (GameDynamicData.IsAvailableRevive)
-        {
-            isEndCounter = true;
-            ViewAdsSuccess(1);
-        }
+        rewardAd.CollectRewards += ViewAdsSuccess;
+        isEndCounter = true;
+        // if (GameDynamicData.IsAvailableRevive)
+        // {
+        //     isEndCounter = true;
+        //     ViewAdsSuccess();
+        // }
         //ViewAdsSuccess();
     }
 
-    private void ViewAdsSuccess(int point)
+    private void ViewAdsSuccess()
     {
         GameDynamicData.IsAvailableRevive = false;
         EventDispatcher.Instance.PostEvent(EventID.CHARACTER_REVIVE);

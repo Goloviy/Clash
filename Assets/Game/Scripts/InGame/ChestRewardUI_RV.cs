@@ -32,6 +32,7 @@ public class ChestRewardUI_RV : ChestRewardUI
 
     private void OnRVSuccess()
     {
+        Time.timeScale = 0;
         rewardAd.CollectRewards -= OnRVSuccess;
         btnRV.gameObject.SetActive(false);
         resultData = AddMoreSkill(2, resultData);
