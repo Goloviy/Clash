@@ -84,13 +84,13 @@ public class ItemShopGacha : MonoBehaviour
     {
         Debug.Log("rewarded");
         rewardAd.CollectRewards -= OnRewardSuccess;
-        GameData.Instance.playerData.AddCurrency(Currency.STAMINA, 5);
-        // btnRewardVideo.gameObject.SetActive(false);
-        // SetTimeNextReward();
-        // GameSystem.Instance.OpenGacha(itemData.gachaType, 1);
-        // GameDynamicData.curGachaType = itemData.gachaType;
-        // UIManagerHome.Instance.Open(PopupType.OPEN_GACHA_EQUIPMENT, true);
-        // GameData.Instance.playerData.saveData.SavePlayerData();
+        //GameData.Instance.playerData.AddCurrency(Currency.STAMINA, 5);
+         btnRewardVideo.gameObject.SetActive(false);
+         SetTimeNextReward();
+         GameSystem.Instance.OpenGacha(itemData.gachaType, 1);
+         GameDynamicData.curGachaType = itemData.gachaType;
+         UIManagerHome.Instance.Open(PopupType.OPEN_GACHA_EQUIPMENT, true);
+         GameData.Instance.playerData.saveData.SavePlayerData();
     }
     
     private void OnClickInfo()

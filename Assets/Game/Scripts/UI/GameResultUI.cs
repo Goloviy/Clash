@@ -22,6 +22,9 @@ public class GameResultUI : PopupUI
     [SerializeField] ItemRewardFinishGame prefabItem;
     [SerializeField] Transform tfParent;
     [SerializeField] private RewardAd rewardAd;
+    private List<ItemRewardFinishGame> rewards = new List<ItemRewardFinishGame>();
+    private int multiplier = 3;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -51,6 +54,10 @@ public class GameResultUI : PopupUI
         rewardAd.CollectRewards -= OnRvSuccess;
         InGameManager.Instance.OnRvSuccess(3);
         btnRewardX2.gameObject.SetActive(false);
+        foreach (var reward in rewards)
+        {
+            reward.Multipliy(multiplier);
+        }
     }
 
     private void ShowInter()
@@ -70,6 +77,7 @@ public class GameResultUI : PopupUI
     {
         btnFinish.onClick.RemoveListener(OnFinish);
     }
+
     private void UpdateUI()
     {
         foreach (var go in winObjects)
@@ -95,12 +103,14 @@ public class GameResultUI : PopupUI
         {
             //init reward items
             var dataChapter = GameData.Instance.staticData.GetChapterLevel(GameDynamicData.SelectChapterLevel);
+            rewards = new List<ItemRewardFinishGame>();
             foreach (var itemData in dataChapter.rewards)
             {
                 var newItem = Instantiate(prefabItem, tfParent);
                 var currencyData = GameData.Instance.staticData.GetCurrencyData(itemData.currency);
                 var rarityData = GameData.Instance.staticData.GetRarity(currencyData.rarity);
                 newItem.Init(rarityData.border, currencyData.icon, itemData.number);
+                rewards.Add(newItem);
             }
         }
 

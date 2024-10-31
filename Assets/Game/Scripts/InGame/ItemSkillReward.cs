@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using I2.Loc;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -78,7 +79,10 @@ public class ItemSkillReward : MonoBehaviour
         //string txtTit2 = I2.Loc.LocalizationManager.GetTranslation(data.nameSkill);
         tmpTitle.text = data.nameSkill;
         //string txtDes = I2.Loc.LocalizationManager.GetTranslation(data.descriptionsLevelup[elementData.level - 1 < 0 ? 0 : elementData.level - 1]);
-        tmpContent.text = data.descriptionsLevelup[elementData.level - 1 < 0 ? 0 : elementData.level - 1];
+        var key = data.descriptionsLevelup[elementData.level - 1 < 0 ? 0 : elementData.level - 1];
+        var text = LocalizationManager.GetTranslation(key);
+        //tmpContent.text = data.descriptionsLevelup[elementData.level - 1 < 0 ? 0 : elementData.level - 1];
+        tmpContent.text = text;
         //tmpContent.text = I2.Loc.LocalizationManager.GetTranslation(data.descriptionsLevelup[elementData.level - 1 < 0 ? 0 : elementData.level - 1]);
         for (int i = 0; i < highlights.Length; i++)
         {
