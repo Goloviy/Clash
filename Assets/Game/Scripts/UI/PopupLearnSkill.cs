@@ -12,24 +12,22 @@ public class PopupLearnSkill : PopupUI
     [SerializeField] Button btnRefresh;
     [SerializeField] Image[] imgAtks;
     [SerializeField] Image[] imgBuffs;
-    [SerializeField] private RewardAd rewardAd;
+    [SerializeField] private AdmobAdsScript admobAds;
     TextMeshProUGUI[] tmpAtks;
     TextMeshProUGUI[] tmpBuffs;
     bool isReferencesFinish = false;
     const string STR_LEVEL = "Lv.";
+    protected int idReward = 3;
+
     protected override void Awake()
     {
         base.Awake();
-
         btnRefresh.onClick.AddListener(RefreshSkills);
+        admobAds.collectRewards += OnSuccess;
     }
-    private void OnEnable()
-    {
-        
-    }
+
     private void UpdateReferencesUI()
     {
-        
         if (isReferencesFinish)
         {
             return;
@@ -42,24 +40,25 @@ public class PopupLearnSkill : PopupUI
             foreach (var item in imgAtks)
             {
                 tmpAtks[i++] = item.GetComponentInChildren<TextMeshProUGUI>();
-
             }
+
             int j = 0;
             foreach (var item in imgBuffs)
             {
                 tmpBuffs[j++] = item.GetComponentInChildren<TextMeshProUGUI>();
-
             }
+
             isReferencesFinish = true;
         }
-
     }
+
     public override void Open()
     {
         UpdateReferencesUI();
         base.Open();
         LoadUI();
     }
+
     private void LoadUI()
     {
         //btnRefresh.gameObject.SetActive(GameData.Instance.playerData.RefreshSkillAvailable);
@@ -67,6 +66,7 @@ public class PopupLearnSkill : PopupUI
         LoadButtonSkill();
         LoadLearned();
     }
+
     private void LoadLearned()
     {
         var listAttack = GameData.Instance.playerData.tempData.ListAttackSkill;
@@ -74,6 +74,7 @@ public class PopupLearnSkill : PopupUI
         LoadIconSkillLearned(listAttack, true);
         LoadIconSkillLearned(listSupport, false);
     }
+
     private void LoadIconSkillLearned(List<SkillName> list, bool isAtk)
     {
         var arrayIcon = isAtk ? imgAtks : imgBuffs;
@@ -82,6 +83,7 @@ public class PopupLearnSkill : PopupUI
         {
             item.gameObject.SetActive(false);
         }
+
         for (int i = 0; i < list.Count; i++)
         {
             var nameSkill = list[i];
@@ -91,6 +93,7 @@ public class PopupLearnSkill : PopupUI
                 arrayIcon[i].overrideSprite = SkillData.spriteIcon;
                 arrayIcon[i].gameObject.SetActive(true);
             }
+
             var level = GameData.Instance.playerData.GetLevelSkill(nameSkill);
             StringBuilder builder = new StringBuilder();
             if (level >= 0)
@@ -102,6 +105,7 @@ public class PopupLearnSkill : PopupUI
             }
         }
     }
+
     private void LoadButtonSkill()
     {
         var data = GameData.Instance.playerData.tempData.GetRandom3SkillToLearn();
@@ -131,23 +135,22 @@ public class PopupLearnSkill : PopupUI
     {
         base.Close();
     }
+
     public void RefreshSkills()
     {
         SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);
-        rewardAd.ShowAd();
-        rewardAd.CollectRewards += OnSuccess;
-        
     }
 
     private void OnFail()
     {
-        
     }
 
-    private void OnSuccess()
+    private void OnSuccess(int _id)
     {
-        rewardAd.CollectRewards -= OnSuccess;
-        LoadButtonSkill();
-        Time.timeScale = 0f;
+        if (idReward == _id)
+        {
+            LoadButtonSkill();
+            Time.timeScale = 0f;
+        }
     }
 }

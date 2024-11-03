@@ -21,42 +21,34 @@ public class GameResultUI : PopupUI
     const string STR_RESULT_LOSE = "LOSE";
     [SerializeField] ItemRewardFinishGame prefabItem;
     [SerializeField] Transform tfParent;
-    [SerializeField] private RewardAd rewardAd;
+    [SerializeField] private AdmobAdsScript admobAds;
     private List<ItemRewardFinishGame> rewards = new List<ItemRewardFinishGame>();
     private int multiplier = 3;
+    private int idReward = 4;
     
     protected override void Awake()
     {
         base.Awake();
+        admobAds.collectRewards += OnRvSuccess;
     }
     private void OnEnable()
     {
         btnFinish.onClick.AddListener(OnFinish);
-        btnRewardX2.onClick.AddListener(OnRewardX3);
         UpdateUI();
         //ShowInter();
     }
 
-    private void OnRewardX3()
+    public void OnRvSuccess(int _id)
     {
-        rewardAd.ShowAd();
-        rewardAd.CollectRewards += OnRvSuccess;
-    }
-
-    private void OnRvFail()
-    {
-        
-    }
-
-    private void OnRvSuccess()
-    {
-        Time.timeScale = 0;
-        rewardAd.CollectRewards -= OnRvSuccess;
-        InGameManager.Instance.OnRvSuccess(3);
-        btnRewardX2.gameObject.SetActive(false);
-        foreach (var reward in rewards)
+        if (idReward == _id)
         {
-            reward.Multipliy(multiplier);
+            Time.timeScale = 0;
+            InGameManager.Instance.OnRvSuccess(3);
+            btnRewardX2.gameObject.SetActive(false);
+            foreach (var reward in rewards)
+            {
+                reward.Multipliy(multiplier);
+            }
         }
     }
 

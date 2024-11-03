@@ -14,7 +14,8 @@ public class BuyStaminaPopup : PopupUI
     [SerializeField] int energy = 15;
     [SerializeField] TextMeshProUGUI tmpBuyEnergy;
     [SerializeField] TextMeshProUGUI tmpBuyPrice;
-    [SerializeField] private RewardAd rewardAd;
+    [SerializeField] private AdmobAdsScript admobAds;
+    private int idRewards = 0;
     protected override void Awake()
     {
         base.Awake();
@@ -23,6 +24,7 @@ public class BuyStaminaPopup : PopupUI
         btnClose.onClick.AddListener(OnClickClose);
         tmpBuyEnergy.text = String.Concat("x ", energy);
         tmpBuyPrice.text = String.Concat("x ", gemBuy);
+        admobAds.collectRewards += OnViewSuccess;
     }
 
     private void OnClickClose()
@@ -33,15 +35,17 @@ public class BuyStaminaPopup : PopupUI
 
     private void OnClickViewVid()
     {
-        rewardAd.CollectRewards += OnViewSuccess;
         SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);
     }
 
-    private void OnViewSuccess()
+    private void OnViewSuccess(int _id)
     {
-        rewardAd.CollectRewards -= OnViewSuccess;
-        GameData.Instance.playerData.AddCurrency(Currency.STAMINA, 5);
-        OnClose();
+
+        if (idRewards == _id)
+        {
+            GameData.Instance.playerData.AddCurrency(Currency.STAMINA, 5);
+            OnClose();
+        }
     }
 
     private void OnClickBuy()
@@ -74,5 +78,10 @@ public class BuyStaminaPopup : PopupUI
     private void OnClose()
     {
         UIManagerHome.Instance.Back();
+    }
+
+    private void OnDestroy()
+    {
+        admobAds.collectRewards -= OnViewSuccess;
     }
 }

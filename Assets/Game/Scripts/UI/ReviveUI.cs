@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -12,15 +10,17 @@ public class ReviveUI : PopupUI
     [SerializeField] TextMeshProUGUI tmpCounter;
     [SerializeField] Image imgFill;
     [SerializeField] Button btnPlayAds;
-    [SerializeField] private RewardAd rewardAd;
+    [SerializeField] private AdmobAdsScript admobAds;
     bool isEndCounter = false;
     float valueFillStart = 0f;
     float valueFillEnd = 1f;
     Coroutine corouTimer;
+    private int idReward = 6;
     protected override void Awake()
     {
         base.Awake();
         btnPlayAds.onClick.AddListener(OnClickPlayAds);
+        admobAds.collectRewards += ViewAdsSuccess;
     }
     private void OnEnable()
     {
@@ -30,23 +30,19 @@ public class ReviveUI : PopupUI
     private void OnClickPlayAds()
     {
         SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);
-        rewardAd.CollectRewards += ViewAdsSuccess;
         isEndCounter = true;
-        // if (GameDynamicData.IsAvailableRevive)
-        // {
-        //     isEndCounter = true;
-        //     ViewAdsSuccess();
-        // }
-        //ViewAdsSuccess();
     }
 
-    private void ViewAdsSuccess()
+    public void ViewAdsSuccess(int _id)
     {
-        GameDynamicData.IsAvailableRevive = false;
-        EventDispatcher.Instance.PostEvent(EventID.CHARACTER_REVIVE);
-        Time.timeScale = 1;
-        //StopCoroutine(corouTimer);
-        Close();
+        if (idReward == _id)
+        {
+            GameDynamicData.IsAvailableRevive = false;
+            EventDispatcher.Instance.PostEvent(EventID.CHARACTER_REVIVE);
+            Time.timeScale = 1;
+            //StopCoroutine(corouTimer);
+            Close();
+        }
     }
     private void ViewAdsFail()
     {
@@ -110,6 +106,4 @@ public class ReviveUI : PopupUI
         manager.Open(PopupType.EndGamePlayScene);
 
     }
-
-    
 }

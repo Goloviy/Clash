@@ -9,36 +9,28 @@ using UnityEngine.UI;
 public class ChestRewardUI_RV : ChestRewardUI
 {
     [SerializeField] Button btnRV;
-    [SerializeField] private RewardAd rewardAd;
+    [SerializeField] private AdmobAdsScript admobAds;
+    private int idReward = 5;
     protected override void Awake()
     {
         base.Awake();
-        btnRV.onClick.AddListener(OnClickRV);
+        //btnRV.onClick.AddListener(OnClickRV);
         btnRV.gameObject.SetActive(true);
         btnSkip.gameObject.SetActive(false);
+        admobAds.collectRewards += OnRVSuccess;
     }
 
-    private void OnClickRV()
+    private void OnRVSuccess(int _id)
     {
-        rewardAd.ShowAd();
-        rewardAd.CollectRewards += OnRVSuccess;
-
-    }
-
-    private void OnRVFail()
-    {
-        
-    }
-
-    private void OnRVSuccess()
-    {
-        Time.timeScale = 0;
-        rewardAd.CollectRewards -= OnRVSuccess;
-        btnRV.gameObject.SetActive(false);
-        resultData = AddMoreSkill(2, resultData);
-        if (resultData != null && resultData.Length >= indexShow)
+        if (idReward == _id)
         {
-            CreateSingleItem(resultData[indexShow++]);
+            Time.timeScale = 0;
+            btnRV.gameObject.SetActive(false);
+            resultData = AddMoreSkill(2, resultData);
+            if (resultData != null && resultData.Length >= indexShow)
+            {
+                CreateSingleItem(resultData[indexShow++]);
+            }
         }
     }
 

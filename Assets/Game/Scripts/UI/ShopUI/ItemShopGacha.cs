@@ -12,7 +12,8 @@ public class ItemShopGacha : MonoBehaviour
     /// Id for saved game
     /// </summary>
     public string packageId;
-    private bool IsPlayVideoRewardToday  => long.Parse( PlayerPrefs.GetString(packageId, "0")) > DateTimeOffset.UtcNow.ToUnixTimeSeconds(); 
+    private bool IsPlayVideoRewardToday  => long.Parse( PlayerPrefs.GetString(packageId, "0")) > DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+    private int idReward = -1;
     
     private void SetTimeNextReward()
     {
@@ -32,13 +33,23 @@ public class ItemShopGacha : MonoBehaviour
     [SerializeField] Image iconCurrency1;
     [SerializeField] Image iconCurrency2;
     [SerializeField] Image iconChest;
-    [SerializeField] private RewardAd rewardAd;
+    [SerializeField] private AdmobAdsScript admobAds;
     ItemGachaShopData itemData;
 
     [SerializeField] GachaInfoPopup goInforGachaPanel;
     private void OnEnable()
     {
         itemData = GameData.Instance.staticData.gachaData.GetDataItemShop(gachaType);
+        admobAds.collectRewards += OnRewardSuccess;
+        if (itemData.gachaType == GachaType.COMMON)
+        {
+            idReward = 1;
+        }
+
+        if (itemData.gachaType == GachaType.PREMIUM)
+        {
+            idReward = 2;
+        }
         if (itemData)
         {
             var currency = GameData.Instance.staticData.currenciesData.GetData(itemData.currencyPrice);
@@ -69,10 +80,9 @@ public class ItemShopGacha : MonoBehaviour
 
     private void OnClickRV()
     {
-        rewardAd.CollectRewards += OnRewardSuccess;
+        //rewardAd.CollectRewards += OnRewardSuccess;
         SoundController.Instance.PlaySound(SOUND_TYPE.UI_BUTTON_CLICK);
         //rewardAd.Rewarded.
-        //OnRewardSuccess(1);
     }
 
     private void OnRVFail()
@@ -80,17 +90,18 @@ public class ItemShopGacha : MonoBehaviour
         
     }
     
-    private void OnRewardSuccess()
+    public void OnRewardSuccess(int _id)
     {
-        Debug.Log("rewarded");
-        rewardAd.CollectRewards -= OnRewardSuccess;
-        //GameData.Instance.playerData.AddCurrency(Currency.STAMINA, 5);
-         btnRewardVideo.gameObject.SetActive(false);
-         SetTimeNextReward();
-         GameSystem.Instance.OpenGacha(itemData.gachaType, 1);
-         GameDynamicData.curGachaType = itemData.gachaType;
-         UIManagerHome.Instance.Open(PopupType.OPEN_GACHA_EQUIPMENT, true);
-         GameData.Instance.playerData.saveData.SavePlayerData();
+        if (idReward == _id)
+        {
+            btnRewardVideo.gameObject.SetActive(false);
+            SetTimeNextReward();
+            GameSystem.Instance.OpenGacha(itemData.gachaType, 1);
+            GameDynamicData.curGachaType = itemData.gachaType;
+            UIManagerHome.Instance.Open(PopupType.OPEN_GACHA_EQUIPMENT, true);
+            GameData.Instance.playerData.saveData.SavePlayerData();
+            Debug.Log(itemData?.gachaType);
+        }
     }
     
     private void OnClickInfo()
@@ -159,5 +170,10 @@ public class ItemShopGacha : MonoBehaviour
                 //DebugCustom.Log("Not Enough " + itemData.currencyPrice2 + requireValue);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        admobAds.collectRewards -= OnRewardSuccess;
     }
 }

@@ -395,11 +395,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2088502095293130675, guid: 230d961c5268a2d4ca50ac8358566f33, type: 3}
       propertyPath: StartAccountGem
-      value: 200000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2088502095293130675, guid: 230d961c5268a2d4ca50ac8358566f33, type: 3}
       propertyPath: StartAccountGold
-      value: 1000000
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
