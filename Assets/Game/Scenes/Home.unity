@@ -1928,7 +1928,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1811894354}
   - component: {fileID: 1811894352}
-  - component: {fileID: 1811894355}
   - component: {fileID: 1811894356}
   - component: {fileID: 1811894357}
   m_Layer: 0
@@ -1965,18 +1964,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1811894355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811894351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8abe2045fcfed6e4dad881b14b076554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1811894356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3031,7 +3018,7 @@ PrefabInstance:
     - target: {fileID: 869273959913702927, guid: b77657e3e8dc43047aa8efacf66da6fa, type: 3}
       propertyPath: rewardAd
       value: 
-      objectReference: {fileID: 1811894355}
+      objectReference: {fileID: 0}
     - target: {fileID: 898362907127935495, guid: b77657e3e8dc43047aa8efacf66da6fa, type: 3}
       propertyPath: mLocalizeTarget
       value: 
@@ -3159,7 +3146,7 @@ PrefabInstance:
     - target: {fileID: 1077466856702097855, guid: b77657e3e8dc43047aa8efacf66da6fa, type: 3}
       propertyPath: rewardAd
       value: 
-      objectReference: {fileID: 1811894355}
+      objectReference: {fileID: 0}
     - target: {fileID: 1077466856702097855, guid: b77657e3e8dc43047aa8efacf66da6fa, type: 3}
       propertyPath: iconChest
       value: 
@@ -5159,7 +5146,7 @@ PrefabInstance:
     - target: {fileID: 7517835675703039274, guid: 676d60a947b036f4ba11f87775f0cfcd, type: 3}
       propertyPath: rewardAd
       value: 
-      objectReference: {fileID: 1811894355}
+      objectReference: {fileID: 0}
     - target: {fileID: 7517835675826344533, guid: 676d60a947b036f4ba11f87775f0cfcd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
