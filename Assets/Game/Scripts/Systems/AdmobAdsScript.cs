@@ -5,11 +5,11 @@ using System;
 public class AdmobAdsScript : MonoBehaviour
 {
 #if UNITY_ANDROID
-    private string adUnitId = "ca-app-pub-3940256099942544/5224354917";//testId
-    //private string adUnitId = "ca-app-pub-8213297186156293/4980299947";//appId
+    //private string adUnitId = "ca-app-pub-3940256099942544/5224354917";//testId
+    private string adUnitId = "ca-app-pub-8213297186156293/4980299947";//appId
 #elif UNITY_IPHONE
-            private string adUnitId = "ca-app-pub-3940256099942544/1712485313";//testId
-            //private string adUnitId = "ca-app-pub-8213297186156293/3098637400";//appId
+            //private string adUnitId = "ca-app-pub-3940256099942544/1712485313";//testId
+            private string adUnitId = "ca-app-pub-8213297186156293/3098637400";//appId
 #else
             private adUnitId = "unexpected_platform";
 #endif

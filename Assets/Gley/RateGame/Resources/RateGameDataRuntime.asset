@@ -18,7 +18,7 @@ MonoBehaviour:
     useCustomEvents: 0
     minCustomEvents: 0
     useInGameTime: 1
-    gamePlayTime: 1
+    gamePlayTime: 15
     useRealTime: 0
     realTime: 0
   postponeSettings:
